@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_21_033738) do
+ActiveRecord::Schema.define(version: 2020_08_21_034907) do
+
+  create_table "bikes", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.integer "quality"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_bikes_on_user_id"
+  end
 
   create_table "trails", force: :cascade do |t|
     t.string "location"
@@ -32,6 +42,7 @@ ActiveRecord::Schema.define(version: 2020_08_21_033738) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bikes", "users"
   add_foreign_key "trails", "bikes"
   add_foreign_key "trails", "users"
 end
