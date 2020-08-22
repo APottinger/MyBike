@@ -1,0 +1,16 @@
+<h1>Welcome <%=@user.username %></h1>
+
+
+<%#=# display_posts %>
+
+<%= render partial: "posts/posts", locals: {posts: @user.posts} %>
+
+
+
+
+
+
+
+
+
+
