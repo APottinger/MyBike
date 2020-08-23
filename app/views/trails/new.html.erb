@@ -5,10 +5,6 @@
 <h1>New Trail:</h1>
 <% end %>
 
-
-
-<%#= render partial: "layouts/errors", locals: {object: @trail} %>
-
 <%= form_for([@trail.bike,@trail]) do |f|%>
 
  <% if !@trail.bike %>

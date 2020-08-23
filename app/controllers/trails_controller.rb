@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-    before_action :redirect_if_not_logged_in
+  before_action :redirect_if_not_logged_in
    before_action :set_trail, only: [:show, :edit, :update]
    before_action :redirect_if_not_trail_author, only: [:edit, :update]
 
@@ -13,7 +13,6 @@ class TrailsController < ApplicationController
   end
 
   def new
-    #if it's nested and why find the bike
     if params[:bike_id] && @bike = Bike.find_by_id(params[:bike_id])
       @trail = @bike.trails.build
     else

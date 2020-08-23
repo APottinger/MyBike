@@ -9,7 +9,6 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       if @user.save
         session[:user_id] = @user.id
-        #redirect to the show page
         redirect_to @user
       else
         render :new
@@ -20,10 +19,6 @@ class UsersController < ApplicationController
       redirect_if_not_logged_in
       @user = User.includes(bikes: :trails).find_by_id(params[:id])
       redirect_to '/' if !@user
-    end
-  
-    def most_active
-      @users = User.most_active
     end
   
     private
