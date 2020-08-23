@@ -1,0 +1,20 @@
+<h1>Edit Trail!</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @trail} %>
+
+<%= form_for(@trail) do |f|%>
+
+  <%= f.label :bike %>
+  <%= f.collection_select :bike_id, Bike.all, :id, :title %>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %><br>
+  <%= f.label :length %>
+  <%= f.number_field :length %><br>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %><br>
+
+
+  <%= f.submit %>
+
+<% end %>

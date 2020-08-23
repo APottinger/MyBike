@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
 root "sessions#home"
 
+get "/auth/:provider/callback" => 'sessions#google'
+
 get '/signup', to: 'users#new'
 post '/signup', to:'users#create'
   
@@ -10,9 +12,7 @@ post '/login', to: 'sessions#create'
   
 
 delete '/logout', to: 'sessions#destroy'
-  
-get "/auth/:provider/callback", to: 'sessions#google'
-  
+
   
   resources :users do
     resources :bikes

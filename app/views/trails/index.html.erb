@@ -1,0 +1,11 @@
+<% if @bike %>
+  <h1>Trails for <%= @bike.name%></h1>
+<% else %>
+  <h1>All Trails</h1>
+<% end %>
+
+<ul>
+<% @trails.each do |t|%>
+  <li><%= t.user.username%> rode <%= link_to t.bike.name, bike_path(t.bike_id) %> at "<%= t.location%>"</li>
+<% end %>
+</ul>

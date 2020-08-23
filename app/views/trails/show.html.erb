@@ -1,0 +1,7 @@
+<h2><%= @trail.content%> - <%= @trail.user.username%></h2>
+
+<% if @trail.user == current_user %>
+  <%= link_to "Edit trail", edit_trail_path(@trail)%>
+<% end %>
+
+<h4>Read the bike here: <%= link_to @trail.bike.name, bike_path(@trail.bike_id) %></h4>

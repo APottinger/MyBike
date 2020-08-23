@@ -1,0 +1,33 @@
+<div class='model_form'>
+<% if @trail.bike %>
+<h1>New Trail for <%= @trail.bike.name%>!</h1>
+<% else %>
+<h1>New Trail:</h1>
+<% end %>
+
+
+
+<%#= render partial: "layouts/errors", locals: {object: @trail} %>
+
+<%= form_for([@trail.bike,@trail]) do |f|%>
+
+ <% if !@trail.bike %>
+  <%= f.label :bike %>
+  <%= f.collection_select :bike_id, Bike.all, :id, :name %>
+<% else %>
+    <%= f.hidden_field :bike_id %>
+<% end %>
+<br><br>
+
+  <%= f.label :location %>
+  <%= f.text_field :location %><br><br>
+  <%= f.label :length %>
+  <%= f.number_field :length %> <em>miles</em><br><br>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %><br><br>
+
+
+  <%= f.submit %>
+
+<% end %>
+</div>

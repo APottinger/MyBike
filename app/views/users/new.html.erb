@@ -1,12 +1,12 @@
-<h1>Sign Up</h1>
+<div class= "header">
+    <h1>Sign Up</h1>
+</div>
 
-<%= render partial: "layouts/errors", locals: {object: @user} %>
-
-
+<div class= 'form'>
 <%= form_for(@user, url:'/signup') do |f| %>
 
   <%= f.label :username %>
-  <%= f.text_field :username %>
+  <%= f.text_field :username, required:true%>
   <br>
    <br>
   <%= f.label :email %>
@@ -14,10 +14,11 @@
   <br>
    <br>
   <%= f.label :password %>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, required:true %>
    <br>
     <br>
 
   <%= f.submit "Submit" %>
 
 <% end %>
+</div>

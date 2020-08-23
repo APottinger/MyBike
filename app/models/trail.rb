@@ -1,5 +1,5 @@
 class Trail < ApplicationRecord
   belongs_to :user
   belongs_to :bike
-  validates :content, presence: true
+  validates :location, presence: true
 end

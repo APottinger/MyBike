@@ -1,0 +1,30 @@
+<h1>Edit <%= @bike.title%>!</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @bike} %>
+
+<%= form_for(@bike) do |f|%>
+
+  <%= f.label "Choose a category:" %>
+  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
+
+
+   <p>Or create a new category:
+  <%= f.fields_for :trails do |c|%>
+    <%= c.text_field :location%>
+  <% end %>
+  </p>
+
+  <br>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br></br>
+  <%= f.label :type %>
+  <%= f.text_area :type %>
+  <br></br>
+  <%= f.label :quality %>
+  <%= f.number_field :quality %>
+
+
+  <%= f.submit %>
+
+<% end %>

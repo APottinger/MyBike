@@ -1,0 +1,19 @@
+<h1><%=@bike.name%></h1>
+<h2>By: <%=link_to @bike.user.username, user_path(@bike.user)%> </h2>
+
+
+<div><%= @bike.type%></div>
+
+
+<p><%= link_to 'Add a new trail', new_bike_trail_path(@bike)%></p>
+
+<% if !@bike.trails.empty? %>
+  <p><%= link_to 'See all trails', bike_trails_path(@bike)%></p>
+  <h4>Most Recent trails:</h4>
+  <% @bike.trails.order(updated_at: :desc).limit(3).each do |c|%>
+    <li>
+      <strong><%= c.user.username%></strong> rode at "<%= link_to c.location, bike_trail_path(@bike,c)%>" at <%= c.updated_at.strftime("%I:%M %p on %m/%d/%Y") %>
+    </li>
+  <% end %>
+<% end %>
+

@@ -8,7 +8,7 @@ class TrailsController < ApplicationController
        @trails = @bike.trails
     else
       @error = "That bike doesn't exist" if params[:bike_id]
-      @trails = trail.all
+      @trails = Trail.all
     end
   end
 
@@ -18,7 +18,7 @@ class TrailsController < ApplicationController
       @trail = @bike.trails.build
     else
       @error = "That bike doesn't exist" if params[:bike_id]
-      @trail = trail.new
+      @trail = Trail.new
     end
   end
 
@@ -49,7 +49,7 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:content,:bike_id)
+    params.require(:trail).permit(:location, :length, :rating, :bike_id)
   end
 
   def set_trail

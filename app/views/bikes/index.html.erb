@@ -1,0 +1,12 @@
+ <%= index_display_header %>
+
+<br>
+
+<% if @bikes.blank? %>
+
+    <h2>No bikes yet. Write a bike <%= link_to "here", new_bike_path%></h2>
+
+<% else %>
+  <%= render partial: "bikes", locals: {bikes: @bikes} %>
+
+<% end %>

@@ -1,0 +1,5 @@
+<ul>
+    <% bikes.each do |b|%>
+      <li><%= link_to b.name, bike_path(b) %></li>
+    <% end %>
+</ul>

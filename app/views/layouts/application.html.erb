@@ -13,17 +13,14 @@
 
   <div>
           <% if logged_in?%>
-      <%= link_to "Add a Post", new_post_path %> |
-      <%= link_to "All Posts", posts_path %> |
-      <%= link_to "My Posts", user_posts_path(current_user) %> |
-      <%= link_to "Add a Comment", new_comment_path %> |
-      <%= link_to "All Categories", categories_path %> |
       <%= link_to "Home", user_path(current_user)%> |
+      <%= link_to "All Bikes", bikes_path %> |
+      <%= link_to "My Bikes", user_bikes_path(current_user) %> |
+      <%= link_to "Add Bike", new_bike_path %> |
+      <%= link_to "Add Trail", new_trail_path %> |
       <%= link_to "Logout", logout_path, method:"delete"%>
 
       <% else %>
-      <%=link_to "Sign Up", signup_path %> |
-      <%=link_to "Log In", login_path %>
       <% end %>
 
     </div>
@@ -36,5 +33,11 @@
       <%= @error%>
   </div>
     <%= yield %>
+
+    <div>
+    <% if logged_in?%>
+      <footer class= 'footer'><em><h5>You're a SkyLine Rider!</h5></em></footer>
+    <% end %>
+    </div>
   </body>
 </html>

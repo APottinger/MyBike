@@ -1,9 +1,10 @@
-<h1>Welcome <%=@user.username %></h1>
+<h1>Welcome, <%=@user.username %></h1>
 
 
-<%#=# display_posts %>
+<p>Here's a quick list of your bikes:</p>
+<%#=# display_bikes %>
 
-<%= render partial: "posts/posts", locals: {posts: @user.posts} %>
+<%= render partial: "bikes/bikes", locals: {bikes: @user.bikes} %>
 
 
 
