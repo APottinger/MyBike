@@ -12,10 +12,10 @@ class BikesController < ApplicationController
 
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
-       @bikes = @user.bikes.alpha
+       @bikes = @user.bikes.alpha_order
     else
       @error = "That user doesn't exist" if params[:user_id]
-      @bikes = Bike.alpha.includes(:user)
+      @bikes = Bike.alpha_order.includes(:user)
     end
 
   end
