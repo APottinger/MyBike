@@ -4,8 +4,16 @@
   <h1>All Trails</h1>
 <% end %>
 
+<%= form_tag(trails_path, method: 'get') do %>
+  <%= label_tag(:search, "Search for:") %>
+  <%= text_field_tag(:search) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <ul>
 <% @trails.each do |t|%>
   <li><%= t.user.username%> rode <%= link_to t.bike.name, bike_path(t.bike_id) %> at "<%= t.location%>"</li>
 <% end %>
 </ul>
+
+

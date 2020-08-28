@@ -4,5 +4,6 @@ class Bike < ApplicationRecord
   has_many :users, through: :trails
   validates :name, :type, presence: true
 
-  scope :alpha_order, -> { order(:title) }
+  scope :alpha_order, -> { order(:name) }
+  
 end

@@ -10,6 +10,7 @@ class TrailsController < ApplicationController
       @error = "That bike doesn't exist" if params[:bike_id]
       @trails = Trail.all
     end
+    @trails = @trails.search_trail(params[:search].downcase) if params[:search] && !params[:search].empty?
   end
 
   def new
@@ -52,7 +53,7 @@ class TrailsController < ApplicationController
   end
 
   def set_trail
-    @trail = trail.find_by(id: params[:id])
+    @trail = Trail.find_by(id: params[:id])
     if !@trail
       flash[:message] = "trail was not found"
       redirect_to trails_path
